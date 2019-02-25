@@ -1,0 +1,54 @@
+.Set {
+	border: 1px solid #ccc;
+	box-shadow: 1px 1px 2px 0px #eee;
+	max-width: 200px;	
+	padding: 15px;
+	margin: 20px;
+	border-radius: 3px;
+	transition:all 0.2s ease-out ;
+	
+	
+	
+	&:hover {
+		transform:  translateY(-10px);
+		box-shadow: 15px 15px 2px 0px #eee;
+	}
+	
+	a {
+		color: #000;
+		text-decoration: none;
+	}
+	
+	.main-logo {
+		width: 100%;
+		height: auto;
+		
+	}
+	.realese-logo-b {
+		position: relative;
+		padding-left: 80px;
+		.realese-logo-img {
+			width: 64px;
+			height: auto;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+		.relese-title {
+			font-weight: bold;
+			margin: 0;
+		}
+
+		.relese-date {
+			font-size: 14px;
+			color: #666;
+			margin: 0;
+		}
+	}
+	.set-info-b{
+		color: #666;
+		font-size: 14px;
+	}
+
+}
