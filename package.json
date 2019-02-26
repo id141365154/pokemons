@@ -25,6 +25,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "node-sass": "^4.11.0"
+    "cross-fetch": "^3.0.1",
+    "node-sass": "^4.11.0",
+    "redux-thunk": "^2.3.0"
   }
 }

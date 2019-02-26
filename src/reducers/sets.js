@@ -1,17 +1,13 @@
 import {
-  REQUEST_POSTS
+  RECEIVE_POSTS
 } from '../actions'
 
 const sets = (state = [], action) => {
   switch (action.type) {
-    case 'REQUEST_POSTS':
+    case 'RECEIVE_POSTS':
       return [
         ...state,
-        {
-          id: action.id,
-          text: action.text,
-          completed: false
-        }
+        action.posts
       ]
    /* case 'TOGGLE_TODO':
       return state.map(todo =>

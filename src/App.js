@@ -1,22 +1,45 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 //import logo from './logo.svg';
 import './App.css';
 import Set from './Set/Set.js';
 
 
-class App extends Component {
-  render() {  
-    return (
-      <div className="App">
-        <div className="sets-block">
-          <Set/>
-          <Set/>
-          <Set/>
-          <Set/>
+const App = (props) => {
+  let setList = 'Loading...';
+  if (typeof props.sets[0] !== 'undefined') { 
+     setList = props.sets[0].map((val, key, arr)=>{
+
+        return (
+          <Set 
+            key={key} 
+            logoUrl={val.logoUrl} 
+            name={val.name}
+            symbolUrl={val.symbolUrl}
+            updatedAt={val.updatedAt}
+            standardLegal={val.standardLegal}
+            expandedLegal={val.expandedLegal}
+              />
+        )
+    });
+  }
+
+  return (
+        <div className="App">
+          <div className="sets-block">
+          {setList}
+          </div>
         </div>
-      </div>
-    );
+      );
+}
+
+
+const mapStateToProps = function(state) {
+  return {
+    sets: state.sets
   }
 }
 
-export default App;
+export default connect(mapStateToProps)(App);
+
+//export default App;
