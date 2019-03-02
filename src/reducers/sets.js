@@ -1,10 +1,10 @@
 import {
-  RECEIVE_POSTS
+  RECEIVE_SETS
 } from '../actions'
 
 const sets = (state = [], action) => {
   switch (action.type) {
-    case 'RECEIVE_POSTS':
+    case 'RECEIVE_SETS':
       return [
         ...state,
         action.posts

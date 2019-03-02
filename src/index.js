@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
+import Sets from './Sets.js';
+import Cards from './Cards.js';
+
 import * as serviceWorker from './serviceWorker';
 
 import thunkMiddleware from 'redux-thunk'
@@ -9,24 +12,29 @@ import thunkMiddleware from 'redux-thunk'
 
 import { createStore, applyMiddleware  } from 'redux'
 
-import { fetchPosts } from './actions'
+import { fetchSets } from './actions'
+import { fetchCards } from './actions'
 
 import { Provider } from 'react-redux'
 import rootReducer from './reducers'
 
 
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+
 //const loggerMiddleware = createLogger();
 
 
-const store = createStore(rootReducer,applyMiddleware(
+const store = createStore(rootReducer, applyMiddleware(
     thunkMiddleware, // lets us dispatch() functions
     //loggerMiddleware // neat middleware that logs actions
   ));
 
-//console.log(store.getState());
 
 /*store.dispatch(selectSubreddit('reactjs'))*/
-store.dispatch(fetchPosts('sets')).then(() => console.log(store.getState()))
+//store.dispatch(fetchPosts('sets')).then(() => console.log(store.getState()))
+store.dispatch(fetchSets('sets'));
+//store.dispatch(fetchCards("neo3"));
 
 /*store.dispatch({ 
 	type: 'ADD_TODO',
@@ -36,9 +44,14 @@ store.dispatch(fetchPosts('sets')).then(() => console.log(store.getState()))
 */
 ReactDOM.render(
 	<Provider store={store}>
-    	<App />
+    <Router>
+      <div>
+        <Route exact path="/" component={Sets}  />
+        <Route path="/:code" component={Cards}  />
+      </div>
+    </Router>
   </Provider>,
-   document.getElementById('root'));
+  document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

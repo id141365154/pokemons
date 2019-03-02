@@ -1,10 +1,12 @@
 import React from 'react';
 import './Set.scss';
+import {Link } from "react-router-dom";
+
 
 const Set = (props) => {
   let mainLogoBg = 'style="background-image:url({props.logoUrl})"';
 
-  //
+//    console.log(props);
 
   let formatDate = (dateStr) =>{
       let date = new Date(Date.parse(props.updatedAt));
@@ -17,11 +19,9 @@ const Set = (props) => {
 
   return (
     <div className="Set">
-      <a
+      <Link to={'/' + props.code}
+          onClick={ props.fetchCards(props.code)}
           className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           <div className="main-logo" style={{ backgroundImage: `url(${props.logoUrl})` }}></div>
           <div className="realese-logo-b">
@@ -37,7 +37,7 @@ const Set = (props) => {
                 {props.expandedLegal && <li>Expanded Legal</li>}
               </ul>
             </div>}        
-        </a>
+        </Link>
     </div>
   );
 }
