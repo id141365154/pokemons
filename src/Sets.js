@@ -4,16 +4,25 @@ import { connect } from 'react-redux';
 //import './App.css';
 import Set from './Set/Set.js';
 import { fetchCards } from './actions';
+import { clearCards } from './actions'
 import './Sets.css';
-const Sets = (props) => {
+
+
+class Sets extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount(){
+      this.props.dispatch(clearCards());
+  }
+
+  render() {
     let setList = "Loading sets...";
 
-    let getCards = (code)=>{
-      return ()=>{props.dispatch(fetchCards(code))}
-    };
-
-    if (typeof props.sets[0] !== 'undefined') { 
-       setList = props.sets[0].map((val, key, arr)=>{
+    if (typeof this.props.sets[0] !== 'undefined') { 
+       setList = this.props.sets[0].map((val, key, arr)=>{
           return (
             <Set 
               key={key} 
@@ -24,22 +33,21 @@ const Sets = (props) => {
               standardLegal={val.standardLegal}
               expandedLegal={val.expandedLegal}
               code={val.code}
-              fetchCards={getCards}
                 />
               
           )
       });
     }
-
-
-    return (
+    return  (
           <div className="App">
             <div className="sets-block">
               {setList}            
             </div>
           </div>
         );
+  }
 }
+
 
 const mapStateToProps = function(state) {
   return {
@@ -48,5 +56,3 @@ const mapStateToProps = function(state) {
 }
 
 export default connect(mapStateToProps)(Sets);
-
-//export default App;

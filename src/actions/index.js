@@ -6,7 +6,6 @@ function receiveSets(subreddit, json) {
   return {
     type: RECEIVE_SETS,
     subreddit,
-    //posts: json.data.children.map(child => child.data),
     posts: json.sets,
     receivedAt: Date.now()
   }
@@ -17,22 +16,17 @@ function receiveCards(subreddit, json) {
   return {
     type: RECEIVE_CARDS,
     subreddit,
-    //posts: json.data.children.map(child => child.data),
     posts: json.cards,
     receivedAt: Date.now()
   }
 }
 
-
 export const CLEAR_CARDS = 'CLEAR_CARDS'
-function clearCards() {
-  console.log("clear")
+export function clearCards(subreddit, json) {
   return {
-    type: CLEAR_CARDS,
-    posts: []
+    type: CLEAR_CARDS
   }
 }
-
 
 
 export function fetchSets(params) {
@@ -51,7 +45,7 @@ export function fetchSets(params) {
 
 export function fetchCards(params) {
   return function(dispatch) {
-    dispatch(clearCards());
+    
     return fetch(`https://api.pokemontcg.io/v1/cards?setCode=${params}`)
       .then(
         response => response.json(),

@@ -19,8 +19,7 @@ const Set = (props) => {
 
   return (
     <div className="Set">
-      <Link to={'/' + props.code}
-          onClick={ props.fetchCards(props.code)}
+      <Link to={'/' + props.code} 
           className="App-link"
         >
           <div className="main-logo" style={{ backgroundImage: `url(${props.logoUrl})` }}></div>
