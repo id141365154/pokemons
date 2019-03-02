@@ -6,8 +6,6 @@ import {Link } from "react-router-dom";
 const Set = (props) => {
   let mainLogoBg = 'style="background-image:url({props.logoUrl})"';
 
-//    console.log(props);
-
   let formatDate = (dateStr) =>{
       let date = new Date(Date.parse(props.updatedAt));
 
@@ -15,7 +13,6 @@ const Set = (props) => {
 
       return `${addZero(date.getMonth()+1)}/${addZero(date.getDate())}/${date.getFullYear()}`
   }
-
 
   return (
     <div className="Set">

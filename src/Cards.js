@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 //import './App.css';
 import Card from './Card/Card.js';
 import { fetchCards } from './actions';
+import Nav from './Nav/Nav.js';
 
 
 
@@ -22,18 +23,17 @@ const Cards = (props) => {
             return (
               <Card 
                 key={key} 
-                name={val.name}
+                data={val}
                   />
+                
             )
         });
-      }
-      else{
-        cardList = "Sorry, cards not found!";
       }
     }
 
     return (
           <div className="App">
+            <Nav />
             <div className="sets-block">
               {cardList}            
             </div>
@@ -48,5 +48,3 @@ const mapStateToProps = function(state) {
 }
 
 export default connect(mapStateToProps)(Cards);
-
-//export default App;
