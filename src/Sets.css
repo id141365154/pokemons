@@ -1,13 +1,7 @@
-.App {
-
-  
-}
-
-.sets-block {  
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  
-  max-width: 1200px;
-  margin: auto;
+.sets-block {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	max-width: 1200px;
+	margin: auto;
 }

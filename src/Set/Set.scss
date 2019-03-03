@@ -1,48 +1,59 @@
-@keyframes SET_CARD{
+@keyframes SET_CARD {
 	0% {
 		opacity: 0;
-		transform:  translateY(10px);
+		transform: translateY(10px);
 	}
+
 	100% {
 		opacity: 1;
-		transform:  translateY(0px);
-		
+		transform: translateY(0px);
+
 	}
 }
 
-@keyframes SET_CARD_HOVER{
+@keyframes SET_CARD_HOVER {
 	0% {
-		filter:hue-rotate(0);
+		filter: hue-rotate(0);
 	}
+
 	10% {
-		filter:hue-rotate(36deg);
+		filter: hue-rotate(36deg);
 	}
+
 	20% {
-		filter:hue-rotate(72deg);
+		filter: hue-rotate(72deg);
 	}
+
 	30% {
-		filter:hue-rotate(108deg);
+		filter: hue-rotate(108deg);
 	}
+
 	40% {
-		filter:hue-rotate(144deg);
+		filter: hue-rotate(144deg);
 	}
+
 	50% {
-		filter:hue-rotate(180deg);
+		filter: hue-rotate(180deg);
 	}
+
 	60% {
-		filter:hue-rotate(216deg);
+		filter: hue-rotate(216deg);
 	}
+
 	70% {
-		filter:hue-rotate(80deg);
+		filter: hue-rotate(80deg);
 	}
+
 	80% {
-		filter:hue-rotate(252deg);
+		filter: hue-rotate(252deg);
 	}
+
 	90% {
-		filter:hue-rotate(288);
+		filter: hue-rotate(288);
 	}
+
 	100% {
-		filter:hue-rotate(324);
+		filter: hue-rotate(324);
 	}
 }
 
@@ -51,7 +62,7 @@
 .Set {
 	a {
 		display: block;
-		width: 250px;	
+		width: 250px;
 		padding: 15px;
 		margin: 20px;
 		border-radius: 3px;
@@ -59,17 +70,20 @@
 		text-decoration: none;
 		border: 1px solid #ccc;
 		box-shadow: 1px 1px 2px 0px #eee;
-		transition:all 0.2s ease-out;
+		transition: all 0.2s ease-out;
 		animation: SET_CARD 0.3s ease-in;
-		&:hover, &:focus {
+
+		&:hover,
+		&:focus {
 			outline: none;
-			transform:  translateY(-10px);
+			transform: translateY(-10px);
 			box-shadow: 15px 15px 2px 0px #eee;
+
 			.main-logo {
 				animation: SET_CARD_HOVER 1.5s infinite;
 			}
 		}
-		
+
 	}
 
 	.main-logo {
@@ -78,14 +92,15 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		margin-bottom: 30px;
-		
+
 	}
-	
-	
+
+
 	.realese-logo-b {
 		position: relative;
 		padding-left: 80px;
 		min-height: 64px;
+
 		.realese-logo-img {
 			width: 64px;
 			height: 64px;
@@ -108,7 +123,8 @@
 			margin: 0;
 		}
 	}
-	.set-info-b{
+
+	.set-info-b {
 		color: #666;
 		font-size: 14px;
 	}
