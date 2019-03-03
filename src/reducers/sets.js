@@ -3,7 +3,6 @@ import {
 } from '../actions'
 
 const sets = (state = [], action) => {
-	console.log(action)
 	switch (action.type) {
 		case 'RECEIVE_SETS':
 			if (action.subreddit.page > 1) {

@@ -53,14 +53,13 @@ export function fetchSets(params) {
 
 export function fetchCards(params) {
 	return function(dispatch) {
-
-		return fetch(`https://api.pokemontcg.io/v1/cards?setCode=${params}`)
+		return fetch(`https://api.pokemontcg.io/v1/cards?setCode=${params.code}&pageSize=${params.pageSize}&page=${params.page}`)
 			.then(
 				response => response.json(),
 				error => console.log('An error occurred.', error)
 			)
-			.then(json =>
+			.then(json => {
 				dispatch(receiveCards(params, json))
-			)
+			})
 	}
 }

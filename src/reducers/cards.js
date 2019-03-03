@@ -11,9 +11,24 @@ const cards = (state = [], action) => {
 				isFetched: false
 			}
 		case 'RECEIVE_CARDS':
-			return {
-				posts: action.posts,
-				isFetched: true
+			if (action.subreddit.page > 1) {
+				let newState = { ...state }
+				newState.posts = [...state.posts, ...action.posts]
+				newState.page++;
+
+				if (action.posts.length == 0) {
+					newState.showMore = false;
+				}
+				newState.isFetched = true;
+				return newState;
+			} else {
+				return {
+					posts: action.posts,
+					pageSize: action.subreddit.pageSize,
+					page: 1,
+					showMore: true,
+					isFetched: true
+				}
 			}
 
 		default:
