@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Set from './Set/Set.js';
-import { fetchCards, clearCards, fetchSets } from './actions';
-import Loadmore from './LoadMore'
+import Set from './../Set/Set.js';
+import Loadmore from './../LoadMore/LoadMore.js'
+import { fetchCards, clearCards, fetchSets } from './../../actions';
 import './Sets.css';
 
 

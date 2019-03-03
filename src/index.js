@@ -1,22 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import thunkMiddleware from 'redux-thunk'
-import Sets from './Sets.js';
-import Cards from './Cards.js';
-import NotFound from './NotFound/NotFound.js';
 import * as serviceWorker from './serviceWorker';
+import Sets from './components/Sets/Sets.js';
+import Cards from './components/Cards/Cards.js';
+import NotFound from './components/NotFound/NotFound.js';
 import './index.css';
-
-
 import { createStore, applyMiddleware } from 'redux'
-
 import { fetchSets } from './actions'
-
-
 import { Provider } from 'react-redux'
 import rootReducer from './reducers'
-
-
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 

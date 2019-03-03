@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Card from './Card/Card.js';
-import { fetchCards } from './actions';
-import Nav from './Nav/Nav.js';
+import Card from './../Card/Card.js';
+import Nav from './../Nav/Nav.js';
+import { fetchCards } from './../../actions';
 
 
 
