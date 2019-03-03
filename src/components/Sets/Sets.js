@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Set from './../Set/Set.js';
 import Loadmore from './../LoadMore/LoadMore.js'
-import { fetchCards, clearCards, fetchSets } from './../../actions';
+import { clearCards, fetchSets } from './../../actions';
 import './Sets.css';
 
 
 class Sets extends React.Component {
 
 	constructor(props) {
-		super(props);
+		super();
 	}
 
 	componentDidMount() {

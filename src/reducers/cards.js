@@ -5,18 +5,18 @@ import {
 
 const cards = (state = [], action) => {
 	switch (action.type) {
-		case 'CLEAR_CARDS':
+		case CLEAR_CARDS:
 			return {
 				posts: [],
 				isFetched: false
 			}
-		case 'RECEIVE_CARDS':
+		case RECEIVE_CARDS:
 			if (action.subreddit.page > 1) {
 				let newState = { ...state }
 				newState.posts = [...state.posts, ...action.posts]
 				newState.page++;
 
-				if (action.posts.length == 0) {
+				if (action.posts.length === 0) {
 					newState.showMore = false;
 				}
 				newState.isFetched = true;

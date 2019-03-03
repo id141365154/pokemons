@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 
 const Set = (props) => {
-	let mainLogoBg = 'style="background-image:url({props.logoUrl})"';
-
 	let formatDate = (dateStr) => {
 		let date = new Date(Date.parse(props.updatedAt));
 

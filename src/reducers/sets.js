@@ -4,13 +4,13 @@ import {
 
 const sets = (state = [], action) => {
 	switch (action.type) {
-		case 'RECEIVE_SETS':
+		case RECEIVE_SETS:
 			if (action.subreddit.page > 1) {
 				let newState = { ...state }
 				newState.posts = [...state.posts, ...action.posts]
 				newState.page++;
 
-				if (action.posts.length == 0) {
+				if (action.posts.length === 0) {
 					newState.showMore = false;
 				}
 				return newState;

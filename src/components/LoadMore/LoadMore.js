@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import "./LoadMore.scss"
-const Loadmore = (props)=>{
+const Loadmore = (props) => {
 	let res = '';
 	if (typeof props.isShowMore !== 'undefined') {
 		if (props.isShowMore) {
 			res = <button onClick={props.clickHandler}>Show more</button>;
-		}else{
+		} else {
 			res = "Sorry, but nothing found"
 		}
 	}
-	return(
-			<div className="Loadmore">
+	return (
+		<div className="Loadmore">
 				{res}
 			</div>
-		)
+	)
 }
 
 
