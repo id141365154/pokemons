@@ -23,22 +23,24 @@ import rootReducer from './reducers'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
-//const loggerMiddleware = createLogger();
-
-
 const store = createStore(rootReducer, applyMiddleware(
     thunkMiddleware, // lets us dispatch() functions
     //loggerMiddleware // neat middleware that logs actions
   ));
 
-store.dispatch(fetchSets('sets'));
+
+const setsPageSize = 30;
+store.dispatch(fetchSets({
+  pageSize:setsPageSize,
+  page:1
+}));
 
 
 ReactDOM.render(
 	<Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Sets}  />
+        <Route exact path="/" component={Sets} />
         <Route exact path="/:code" component={Cards}  />
         <Route path="/" component={NotFound}  />
       </Switch>

@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import logo from './logo.svg';
-//import './App.css';
 import Set from './Set/Set.js';
 import { fetchCards } from './actions';
 import { clearCards } from './actions'
 import './Sets.css';
+
+import { fetchSets } from './actions'
+
+import Loadmore from './LoadMore'
 
 
 class Sets extends React.Component {
 
   constructor(props) {
     super(props);
+    
   }
 
   componentDidMount(){
@@ -21,8 +24,10 @@ class Sets extends React.Component {
   render() {
     let setList = "Loading sets...";
 
-    if (typeof this.props.sets[0] !== 'undefined') { 
-       setList = this.props.sets[0].map((val, key, arr)=>{
+    console.log(this.props)
+
+    if (typeof this.props.sets.posts !== 'undefined') { 
+       setList = this.props.sets.posts.map((val, key, arr)=>{
           return (
             <Set 
               key={key} 
@@ -43,6 +48,14 @@ class Sets extends React.Component {
             <div className="sets-block">
               {setList}            
             </div>
+           
+              <Loadmore isShowMore={this.props.sets.showMore} clickHandler={()=>{
+                  this.props.dispatch(fetchSets({
+                    pageSize:this.props.sets.pageSize,
+                    page:this.props.sets.page+1
+                  }));
+              }}/>
+             
           </div>
         );
   }
@@ -51,7 +64,9 @@ class Sets extends React.Component {
 
 const mapStateToProps = function(state) {
   return {
-    sets: state.sets
+    sets: state.sets,
+    pageSize: state.pageSize,
+    page: state.page
   }
 }
 

@@ -3,18 +3,26 @@ import {
 } from '../actions'
 
 const sets = (state = [], action) => {
+  console.log(action)
   switch (action.type) {
     case 'RECEIVE_SETS':
-      return [
-        ...state,
-        action.posts
-      ]
-   /* case 'TOGGLE_TODO':
-      return state.map(todo =>
-        (todo.id === action.id)
-          ? {...todo, completed: !todo.completed}
-          : todo
-      )*/
+      if (action.subreddit.page>1) {
+        let newState = {...state}
+        newState.posts = [...state.posts, ...action.posts]
+        newState.page++;
+
+        if (action.posts.length==0) {
+          newState.showMore = false;
+        }
+        return newState;
+      }else{
+        return {
+          posts: action.posts,
+          pageSize:action.subreddit.pageSize,
+          page:1,
+          showMore:true
+        }
+      }
     default:
       return state
   }

@@ -31,7 +31,13 @@ export function clearCards(subreddit, json) {
 
 export function fetchSets(params) {
   return function(dispatch) {
-    return fetch(`https://api.pokemontcg.io/v1/${params}`)
+    if (typeof params.page == "undefined") {
+      params.page = '1';
+    }
+    if (typeof params.pageSize == "undefined") {
+      params.pageSize = '9';
+    }
+    return fetch(`https://api.pokemontcg.io/v1/sets/?pageSize=${params.pageSize}&page=${params.page}`)
       .then(
         response => response.json(),
         error => console.log('An error occurred.', error)
