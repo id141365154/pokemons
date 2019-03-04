@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Set from './../Set/Set.js';
 import Loadmore from './../LoadMore/LoadMore.js'
+import Spinner from './../Spinner/Spinner.js';
 import { clearCards, fetchSets } from './../../actions';
 import './Sets.css';
 
@@ -50,6 +51,7 @@ class Sets extends React.Component {
 						);
 					}}
 				/>
+				<Spinner isVisible={this.props.sets.isFetching} />
 			</div>
 		);
 	}

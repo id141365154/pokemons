@@ -1,6 +1,7 @@
 import {
 	RECEIVE_CARDS,
 	CLEAR_CARDS,
+	RECEIVE_CARDS_START
 } from '../actions'
 
 const cards = (state = [], action) => {
@@ -8,7 +9,8 @@ const cards = (state = [], action) => {
 		case CLEAR_CARDS:
 			return {
 				posts: [],
-				isFetched: false
+				isFetched: false,
+				isFetching: false
 			}
 		case RECEIVE_CARDS:
 			if (action.subreddit.page > 1) {
@@ -20,6 +22,7 @@ const cards = (state = [], action) => {
 					newState.showMore = false;
 				}
 				newState.isFetched = true;
+				newState.isFetching = false;
 				return newState;
 			} else {
 				return {
@@ -27,10 +30,18 @@ const cards = (state = [], action) => {
 					pageSize: action.subreddit.pageSize,
 					page: 1,
 					showMore: true,
-					isFetched: true
+					isFetched: true,
+					isFetching: false
 				}
 			}
-
+		case RECEIVE_CARDS_START:
+			if (!state.isFetching) {
+				let newState = { ...state }
+				newState.isFetching = true;
+				return newState;
+			} else {
+				return state;
+			}
 		default:
 			return state
 	}

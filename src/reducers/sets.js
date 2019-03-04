@@ -1,5 +1,6 @@
 import {
-	RECEIVE_SETS
+	RECEIVE_SETS,
+	RECEIVE_SETS_START
 } from '../actions'
 
 const sets = (state = [], action) => {
@@ -13,15 +14,21 @@ const sets = (state = [], action) => {
 				if (action.posts.length === 0) {
 					newState.showMore = false;
 				}
+				newState.isFetching = false
 				return newState;
 			} else {
 				return {
 					posts: action.posts,
 					pageSize: action.subreddit.pageSize,
 					page: 1,
-					showMore: true
+					showMore: true,
+					isFetching: false
 				}
 			}
+		case RECEIVE_SETS_START:
+			let newState = { ...state }
+			newState.isFetching = true
+			return newState;
 		default:
 			return state
 	}

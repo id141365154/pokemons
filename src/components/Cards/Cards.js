@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Card from './../Card/Card.js';
 import Nav from './../Nav/Nav.js';
-import Loadmore from './../LoadMore/LoadMore.js'
+import Loadmore from './../LoadMore/LoadMore.js';
+import Spinner from './../Spinner/Spinner.js';
 import { fetchCards } from './../../actions';
 
 
@@ -56,6 +57,7 @@ const Cards = (props) => {
 					);
 				}}
 			/>
+			<Spinner isVisible={props.cards.isFetching} />
 		</div>
 	);
 }

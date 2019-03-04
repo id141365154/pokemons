@@ -1,0 +1,11 @@
+.Spinner {
+	left: 0;
+	right: 0;
+	width: 100px;
+	height: 100px;
+	margin: auto;
+	z-index: 99;
+	transform: translateY(-90px);
+	background: rgba(255, 255, 255, 0.7294117647058823);
+	cursor: progress;
+}
