@@ -60,11 +60,20 @@
 
 
 .Set {
+	margin: 20px;
+
+	width: 25%;
+	max-width: 250px;
+	min-width: 220px;
+
 	a {
+
 		display: block;
-		width: 250px;
+
+		height: 100%;
+
 		padding: 15px;
-		margin: 20px;
+		padding-bottom: 0;
 		border-radius: 3px;
 		color: #000;
 		text-decoration: none;

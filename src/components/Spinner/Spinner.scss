@@ -1,11 +1,12 @@
 .Spinner {
 	left: 0;
 	right: 0;
-	width: 100px;
-	height: 100px;
+	width: 79px;
+	height: 51px;
 	margin: auto;
 	z-index: 99;
-	transform: translateY(-90px);
-	background: rgba(255, 255, 255, 0.7294117647058823);
+	transform: translateY(-79px);
+	background: rgba(255, 255, 255, 0.729412);
 	cursor: progress;
+	box-shadow: #fff 0 0 20px 3px;
 }
