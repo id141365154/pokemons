@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Set from './../Set/Set.js';
-import Loadmore from './../LoadMore/LoadMore.js'
-import Spinner from './../Spinner/Spinner.js';
+import Set from './../../components/Set/Set.js';
+import Loadmore from './../../components/LoadMore/LoadMore.js'
+import Spinner from './../../components/Spinner/Spinner.js';
 import { clearCards, fetchSets } from './../../actions';
 import './Sets.css';
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Card from './../Card/Card.js';
-import Nav from './../Nav/Nav.js';
-import Loadmore from './../LoadMore/LoadMore.js';
-import Spinner from './../Spinner/Spinner.js';
+import Card from './../../components/Card/Card.js';
+import Nav from './../../components/Nav/Nav.js';
+import Loadmore from './../../components/LoadMore/LoadMore.js';
+import Spinner from './../../components/Spinner/Spinner.js';
 import { fetchCards } from './../../actions';
 
 

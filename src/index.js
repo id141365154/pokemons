@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Sets from './components/Sets/Sets.js';
-import Cards from './components/Cards/Cards.js';
+import Sets from './containers/Sets/Sets.js';
+import Cards from './containers/Cards/Cards.js';
 import NotFound from './components/NotFound/NotFound.js';
 import { createStore, applyMiddleware } from 'redux'
 import { fetchSets } from './actions'
