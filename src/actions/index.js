@@ -45,6 +45,25 @@ export function cardsFetchStart(subreddit, json) {
 	}
 }
 
+export const RECEIVE_CARD_TYPES = 'RECEIVE_CARD_TYPES'
+export function receiveCardTypes(subreddit, json) {
+	return {
+		type: RECEIVE_CARD_TYPES,
+		posts: json.types
+	}
+}
+
+export const CARDS_FILTER_SWITCH = 'CARDS_FILTER_SWITCH'
+export function cardsFilterSwitch(subreddit) {
+	return {
+		type: CARDS_FILTER_SWITCH,
+		value: subreddit
+	}
+}
+
+
+
+
 export function fetchSets(params) {
 	return function(dispatch) {
 		if (typeof params.page == "undefined") {
@@ -71,13 +90,31 @@ export function fetchCards(params) {
 
 		dispatch(cardsFetchStart(params));
 
-		return fetch(`https://api.pokemontcg.io/v1/cards?setCode=${params.code}&pageSize=${params.pageSize}&page=${params.page}`)
+		let types = '';
+		if (Array.isArray(params.types) && params.types.length > 0) {
+			types = params.types.join('|').toLowerCase();
+		}
+
+		return fetch(`https://api.pokemontcg.io/v1/cards?setCode=${params.code}&pageSize=${params.pageSize}&page=${params.page}&types=${types}`)
 			.then(
 				response => response.json(),
 				error => console.log('An error occurred.', error)
 			)
 			.then(json => {
 				dispatch(receiveCards(params, json))
+			})
+	}
+}
+
+export function fetchCardTypes(params) {
+	return function(dispatch) {
+		return fetch(`https://api.pokemontcg.io/v1/types`)
+			.then(
+				response => response.json(),
+				error => console.log('An error occurred.', error)
+			)
+			.then(json => {
+				dispatch(receiveCardTypes(params, json))
 			})
 	}
 }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Set from './../../components/Set/Set.js';
 import Loadmore from './../../components/LoadMore/LoadMore.js'
 import Spinner from './../../components/Spinner/Spinner.js';
+import Msg from './../../components/Msg/Msg.js';
 import { clearCards, fetchSets } from './../../actions';
 import './Sets.css';
 
@@ -18,7 +19,8 @@ class Sets extends React.Component {
 	}
 
 	render() {
-		let setList = "Loading sets...";
+		let setList = <Msg message="Loading sets..." />;
+
 		if (typeof this.props.sets.posts !== 'undefined') {
 			setList = this.props.sets.posts.map((val, key, arr) => {
 				return (
